@@ -19,10 +19,4 @@ public class ArticleController {
         model.addAttribute("test", articleService.articleList());
         return "/article/hello";
     }
-
-    @GetMapping("/articles")
-    public String main(Model model){
-        model.addAttribute("articles", articleService.articleList());
-        return "/article/articles";
-    }
 }
