@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <link href="../css/bootstrap.min.css"
+              th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <style>
+            .container {
+            max-width: 560px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="py-5 text-center">
+                <h2>게시글 등록 폼</h2>
+            </div>
+            <h4 class="mb-3">게시글 입력</h4>
+
 <form action="article.html" th:action method="post">
     <div>
         <label for="subject">제목</label>
@@ -17,8 +36,11 @@
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"
                     onclick="location.href='articles.html'"
-                    th:onclick="|location.href='@{/article}'|"
+                    th:onclick="|location.href='@{/articles}'|"
                     type="button">취소</button>
         </div>
     </div>
 </form>
+        </div> <!-- /container -->
+    </body>
+</html>

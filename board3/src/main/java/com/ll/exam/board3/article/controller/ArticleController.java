@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/article")
+@RequestMapping("/articles")
 @RequiredArgsConstructor
 public class ArticleController {
     private final ArticleService articleService;
@@ -47,7 +47,7 @@ public class ArticleController {
 
         redirectAttributes.addAttribute("id", id);
         redirectAttributes.addAttribute("status", true);
-        return "redirect:/article/{id}";
+        return "redirect:/articles/{id}";
     }
 
     @GetMapping("/{id}/edit")
@@ -67,12 +67,12 @@ public class ArticleController {
 
         articleService.update(findArticle);
 
-        return "redirect:/article/{id}";
+        return "redirect:/articles/{id}";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteArticle(@PathVariable Long id){
         articleService.deleteById(id);
-        return "redirect:/article";
+        return "redirect:/articles";
     }
 }

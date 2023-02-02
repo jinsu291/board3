@@ -1,3 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link   th:href="@{/css/bootstrap.min.css}"
+            href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>게시글 목록</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-end"
+                    onclick="location.href='addForm.html'"
+                    th:onclick="|location.href='@{/articles/add}'|"
+                    type="button">게시글 등록</button>
+        </div>
+    </div>
+    <hr class="my-4">
 <div>
     <table class="table">
         <thead>
@@ -9,10 +30,13 @@
         </thead>
         <tbody>
         <tr th:each="article : ${articles}">
-            <td><a href="article.html" th:href="@{/article/{id}(id=${article.id})}" th:text="${article.id}">게시글 아이디</a></td>
+            <td><a href="article.html" th:href="@{/articles/{id}(id=${article.id})}" th:text="${article.id}">게시글 아이디</a></td>
             <td th:text="${article.subject}">제목</td>
             <td th:text="${article.content}">내용</td>
         </tr>
         </tbody>
     </table>
 </div>
+</div> <!-- /container -->
+</body>
+</html>
