@@ -9,7 +9,7 @@
         </thead>
         <tbody>
         <tr th:each="article : ${articles}">
-            <td><a href="article.html" th:href="@{/articles/{id}(id=${article.id})}" th:text="${article.id}">게시글 아이디</a></td>
+            <td><a href="article.html" th:href="@{/article/{id}(id=${article.id})}" th:text="${article.id}">게시글 아이디</a></td>
             <td th:text="${article.subject}">제목</td>
             <td th:text="${article.content}">내용</td>
         </tr>

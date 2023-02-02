@@ -26,4 +26,10 @@
         SET subject = #{subject}, content = #{content}
         WHERE id = #{id};
     </update>
+
+    <delete id ="delete" parameterType="Long">
+        DELETE
+        FROM article
+        WHERE id = #{id};
+    </delete>
 </mapper>
