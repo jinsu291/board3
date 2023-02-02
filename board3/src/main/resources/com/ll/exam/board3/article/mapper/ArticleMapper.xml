@@ -18,6 +18,12 @@
     </select>
 
     <insert id ="save" parameterType="com.ll.exam.board3.article.entity.Article" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO article (title, content) VALUES (#{title}, #{content});
+        INSERT INTO article (subject, content) VALUES (#{subject}, #{content});
     </insert>
+
+    <update id ="update" parameterType="com.ll.exam.board3.article.entity.Article">
+        UPDATE article
+        SET subject = #{subject}, content = #{content}
+        WHERE id = #{id};
+    </update>
 </mapper>
