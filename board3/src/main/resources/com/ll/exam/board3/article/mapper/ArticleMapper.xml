@@ -12,4 +12,12 @@
         *
         FROM article;
     </select>
+
+    <select id ="findById" parameterType="Long" resultType="com.ll.exam.board3.article.entity.Article">
+        SELECT * FROM article WHERE id=#{id};
+    </select>
+
+    <insert id ="save" parameterType="com.ll.exam.board3.article.entity.Article" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO article (title, content) VALUES (#{title}, #{content});
+    </insert>
 </mapper>

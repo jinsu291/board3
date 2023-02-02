@@ -16,7 +16,7 @@ public interface ArticleMapper{
 
     Article findById(Long id);
 
-    void save(Article article);
+    Long save(Article article);
 
     Long update(Article article);
 
