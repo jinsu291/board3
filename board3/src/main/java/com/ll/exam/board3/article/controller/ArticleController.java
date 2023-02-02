@@ -47,6 +47,25 @@ public class ArticleController {
 
         redirectAttributes.addAttribute("id", id);
         redirectAttributes.addAttribute("status", true);
+        return "redirect:/article/{id}";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model){
+        Article findArticle = articleService.findById(id);
+        model.addAttribute("article", findArticle);
+        return "article/editForm";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String editForm(@PathVariable Long id, @RequestParam String subject,
+                           @RequestParam String content)
+    {
+        Article findArticle = articleService.findById(id);
+        findArticle.setSubject(subject);
+        findArticle.setContent(content);
+
+        articleService.update(findArticle);
 
         return "redirect:/article/{id}";
     }
