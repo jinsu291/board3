@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ArticleService {
+
     @Autowired
     private final ArticleMapper articleMapper;
 
@@ -21,5 +22,24 @@ public class ArticleService {
     }
     public List<Article> articleList(){
         return articleMapper.findAll();
+    }
+
+    public Article findById(Long id){
+        return articleMapper.findById(id);
+    }
+
+    @Transactional
+    public Long add(Article article) {
+        articleMapper.save(article);
+        return article.getId();
+    }
+
+    @Transactional
+    public Long update(Article article){
+        return articleMapper.update(article);
+    }
+
+    public void deleteById(Long id) {
+        articleMapper.delete(id);
     }
 }

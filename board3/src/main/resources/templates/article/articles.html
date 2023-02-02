@@ -1,0 +1,16 @@
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>제목</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="article : ${articles}">
+            <td><a href="article.html" th:href="@{/articles/{id}(id=${article.id})}" th:text="${article.id}">게시글 아이디</a></td>
+            <td th:text="${article.subject}">제목</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

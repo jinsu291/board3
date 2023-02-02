@@ -13,4 +13,12 @@ public interface ArticleMapper{
     int articleCount();
 
     List<Article> findAll();
+
+    Article findById(Long id);
+
+    void save(Article article);
+
+    Long update(Article article);
+
+    void delete(Long id);
 }
